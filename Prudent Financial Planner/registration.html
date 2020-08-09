@@ -1,5 +1,75 @@
 <html>
     <head>
+
+        <script type="text/javascript" language="javascript">
+
+            function myFunction() {
+                var fname = document.forms["form1"]["fname"].value;
+                var lname = document.forms["form1"]["lname"].value;
+                var gen = document.forms["form1"]["gender"].value;
+                var mail = document.forms["form1"]["mail"].value; 
+                var pass1 = document.forms["form1"]["pass1"].value;
+                var mno = document.forms["form1"]["mno"].value;
+
+                alert("Name:"+fname+" <br> Surname:"+lname+"<br>Gender:"+gen+"<br>E-mail:"+mail+"<br>Chosen Pssword:"+pass1+"<br>Mobile No:"+mno);
+
+            }
+
+            var check = function() {
+        
+                if (document.getElementById('pass1').value === document.getElementById('pass2').value) {
+                    document.getElementById('message').style.color = 'yellow';
+                    document.getElementById('message').innerHTML = 'Password Matched';
+                    document.getElementById('Register').disabled = false;
+                }    
+                else {
+                    document.getElementById('message').style.color = 'red';
+                    document.getElementById('message').innerHTML = 'Password is not matching';
+                    document.getElementById('Register').disabled = true;
+                }
+            }
+
+        function onlyAlphabets(e, t) {
+            try {
+                if (window.event) {
+                    var charCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var charCode = e.which;
+                }
+                else { return true; }
+                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123)) {
+                    
+                    document.getElementById('message1').innerHTML = '';
+                   
+                    return true;
+                }
+                else {
+                    document.getElementById('message1').style.color = 'red';
+                    document.getElementById('message1').innerHTML = 'Numbers are not allowed in First Name and Last name field';
+                
+                    return false;
+                   
+                }
+            }
+            catch (err) {
+                alert(err.Description);
+            }
+        }
+         
+        function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            document.getElementById('message2').style.color = 'red';
+            document.getElementById('message2').innerHTML = 'Only numbers are allowed in this field';
+            return false;
+        }
+        document.getElementById('message2').innerHTML = '';
+        return true;
+       }
+        </script>
+
         <link rel="stylesheet" type="text/css" href="css/registration_css.css">
         <title>
             Register Here
@@ -9,34 +79,36 @@
     
 <body class="backcolor">
         <div class="center">
-            <form action="#">
+            <form action="#" name="form1" onsubmit="return myFunction(this);">
             <h1>Registration Form</h1>
                
             <label for="fname">First name</label><br>
-            <input type="text" id="fname" name="fname" placeholder="First Name..." required><br><br>
+            <input type="text" id="fname" name="fname" placeholder="First Name..." required  onkeypress="return onlyAlphabets(event,this);"><span id='message1'></span><br><br>
         
             <label for="lname">Last name</label><br>
-            <input type="text" id="lname" name="lastname" placeholder="Last Name..." required><br><br>
+            <input type="text" id="lname" name="lname" placeholder="Last Name..." required   onkeypress="return onlyAlphabets(event,this);"><br><br>
           
             <label for="gender">Select your gender</label><br>
             <input type="radio" name="gender" value="male" checked>Male <input type="radio" name="gender" value="female">Female<br><br>
             
             <label for="email">Enter your email id</label><br>
-            <input type="email" id="mail" name="mail" placeholder="Enter your email address..." required><br><br>
+            <input type="email" id="mail" name="mail" placeholder="Enter your email address..." required ><br><br>
 
             <label for="otp1">OTP</label><br>
-            <input type="text" id="otp" name="otp" placeholder="Enter your otp here..." required><br><br>
+            <input type="text" id="otp" name="otp" placeholder="Enter your otp here..." required ><br><br>
 
             <label for="pass">New Password</label><br>
-            <input type="password" id="pass1" name="pass1" placeholder="Enter your Password..."   required=""><br><br>
+            <input type="password" id="pass1" name="pass1" placeholder="Enter your Password..."   required="" onkeyup='check();'><br><br>
             
             <label for="re_pass">Confirm Password</label><br>
-            <input type="password" id="pass2" name="pass2" placeholder="Confirm Password..."  required=""><br><br>
+            <input type="password" id="pass2" name="pass2" placeholder="Confirm Password..."  required="" onkeyup='check();'><span id='message'></span><br><br>
+
+            
               <!-- <span id='message'></span> -->
               <label for="mn">Mobile Number</label><br>
-           <input type="text" id="mno" name="mno" placeholder="Enter your mobile number..." required="" maxlength="10" ><br><br>            
-            
-            <input type="submit" id="register" value="Register">
+           <input type="text" id="mno" name="mno" placeholder="Enter your mobile number..." required="" maxlength="10" onkeypress="return isNumber(event)" ><br><br>            
+           <span id='message2'></span>
+            <input type="submit" id="Register" value="Register">
             <h3>Already Have an account?<a href="login.html">Click Here to Log in</a></h3>
           </form>
         </div>
