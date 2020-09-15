@@ -2,22 +2,147 @@
       <head>
           <link rel="stylesheet" type="text/css" href="css/home_css.css">
           <link rel="stylesheet" type="text/css" href="Bootstrap/css/bootstrap.min.css">
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+          <script src="Bootstrap/js/jquery-3.5.1.js"></script>
+          <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
 
           <title>
             Welcome [Username]
           </title>        
           <style>
-              .carousel-inner img {
-                width: 100%;
-                height: 100%;
-              }
+            #panel, #flip {
+              padding: 5px;
+              text-align: center;
+              background-color: #c4bd54;
+              border: solid 1px #c3c3c3;
+            }
+            #panel1, #flip1 {
+              padding: 5px;
+              text-align: center;
+              background-color: #c4bd54;
+              border: solid 1px #c3c3c3;
+            }
+            .carousel-inner img {
+              width: 100%;
+              height: 100%;
+            }
+
+            .jquery {
+              border: 1px solid chocolate;
+              height: auto;
+              text-align: center;
+              line-height: 25px;
+              background-color: #AEFFFB;
+            }
+
+            #div2 {
+              height:auto;
+              width:300px;
+              border:1px solid black;
+              background-color:yellow;
+              margin-left: 38em;
+            }
+            #div3 {
+              height:auto;
+              width:300px;
+              border:1px solid black;
+              background-color:yellow;
+              margin-left: 38em;
+            }
+            #div4 {
+              height:auto;
+              width:300px;
+              border:1px solid black;
+              background-color:yellow;
+              margin-left: 38em;
+            }
+            hr {
+              width: 100%;
+              color: chartreuse;
+            }
+            h3 {
+              color: #FF5733;
+            }
+            .important {
+              font-weight: bold;
+              font-family: 'Times New Roman', Times, serif;
+              font-style: italic;
+            }
+
+            .colors {
+              color: blue;
+              background-color: azure;
+            }
+
           </style>
 
           <script type="text/javascript">
             /*$(document).ready(function() { 
               $("#nav_bar").load("navbar.html");
             });*/
+
+            $(document).ready(function(){
+              $("p").click(function(){
+                $(this).hide();
+              });
+            });
+
+            $(document).ready(function(){
+              $("#hide").click(function(){
+               $("#para").hide();
+              });
+              $("#show").click(function(){
+               $("#para").show();
+              });
+            });
+
+            $(document).ready(function(){
+             $("#button").click(function(){
+                $("#para1").fadeToggle("slow");
+              });
+            });
+
+            $(document).ready(function(){
+              $("#panel").hide();
+              $("#flip").click(function(){
+                $("#panel").slideDown("slow");
+              });
+            });
+
+            $(document).ready(function(){
+              $("#flip1").click(function(){
+                $("#panel1").slideUp();
+              });
+            });
+
+            $(document).ready(function(){
+              $("#btn").click(function(){
+                $("#para2").css("color", "#FF5733")
+                .slideUp(3000)
+                .slideDown(3000);
+             });
+            });
+
+            $(document).ready(function(){
+              $("#btn1").click(function(){
+                $("#div2").empty();
+              });
+            });
+
+            $(document).ready(function(){
+              $("#btn2").click(function(){
+               $("#head1, #head2, #para3").addClass("colors");
+               $("#div3").addClass("important");
+              });
+            });
+
+            $(document).ready(function(){
+              $("#btn3").click(function(){
+                var txt = "";
+                txt += "Width of div named 'jquery' is : " + $("#jquery").width() + "</br>";
+                txt += "Height of div named 'jquery' is : " + $("#jquery").height();
+                $("#div4").html(txt);
+              });
+            });
 
             function load_data() {
               document.getElementById("nav_bar").innerHTML = '<object class="obj" type="text/html" data="navbar.html"></object>';
@@ -104,7 +229,7 @@
                                 <img src="Images/mutual_fund1.jpg" class="card-img-top">
                                 <div class="card-body">
                                   <h4 class="card-title">Mutual Funds</h4>
-                                  <p class="card-text">Invest in open-end professionally managed investment fund</p>
+                                  <p class="card-text">Invest in open-end professionally managed investment fund.</p>
                                   <button type="button" class="btn btn-primary">Know More</button>
                                 </div>
                             </div>
@@ -126,7 +251,7 @@
                                 <img src="Images/corporate_bond.jpg" class="card-img-top">
                                 <div class="card-body">
                                   <h4 class="card-title">Corporate bond</h4>
-                                  <p class="card-text">Invest in a bond which is issued by a corporation in order to raise financing</p>
+                                  <p class="card-text">Invest in a bond which is issued by a corporation in order to raise financing.</p>
                                   <button type="button" class="btn btn-primary">Know More</button>
                                 </div>
                             </div>
@@ -190,18 +315,94 @@
             </div>
           </div>
 
-          <!--<footer>
-              <p>
-                  Footer will contain information about the website and link to Personal Loan EMI calculator,Home Loan Caalculator,Car Loan Calculator and Recurring Deposit Calculator
-              </p>
-          </footer>-->
+          <div class="jquery" id="jquery">
+              <h3>All Jqueries goes here</h3>
 
-          <div id="footer_div">
+              <hr>
+
+              <p>
+                A mutual fund is an open-end professionally managed investment fund that pools money from many investors to purchase 
+                securities. These investors may be retail or institutional in nature.Click Me if you do not want to see me!!
+              </p>
+
+              <hr>
+
+              <p id="para">
+                Mutual funds have advantages and disadvantages compared to direct investing in individual securities.
+              </p>
+              <button id="hide">Hide Content</button>
+              <button id="show">Show Show</button>
+
+              <hr>
+
+              <button id="button">Click to fade in boxes</button><br><br>
+              <p id="para1">
+                The advantages of mutual funds include economies of scale, diversification, liquidity, and professional management. 
+                However, these come with mutual fund fees and expenses.
+              </p>
+
+              <hr>
+
+              <div id="flip">Click to slide down panel</div>
+              <div id="panel">Mutual funds are often classified by their principal investments as money market funds, bond or fixed income 
+                funds, stock or equity funds, hybrid funds, or other. Funds may also be categorized as index funds, which are passively
+                 managed funds that match the performance of an index, or actively managed funds
+              </div>
+
+              <hr>
+
+              <div id="flip1">Click to toggle panel</div>
+              <div id="panel1">Open-end mutual funds must be willing to buy back their shares from their investors at the 
+                Net Asset Value (NAV) computed that day based upon the prices of the securities owned by the fund. 
+              </div>
+
+              <hr>
+
+              <p id="para2">
+                Mutual Funds pool money from a large number of investors to invest in equities, stocks, bonds, and other securities based
+               on the fund's objectives.
+              </p>
+              <button id="btn">Click me</button>
+
+              <hr>
+
+              <div id="div2">
+                <p>
+                  Most open-end funds also sell shares to the public every business day; these shares are priced at NAV.
+                  Open-end funds are often referred to simply as "mutual funds".
+                </p>
+              </div>
+              <br>
+
+              <button id="btn1">Clear this div content</button>
+
+              <hr>
+
+              <div id="div3">
+                
+                <h4 id="head1">Mutual Funds Types by underlying investments</h4>
+                <h5 id="head2">IN this category they are divided as follows</h5>
+                <p id="para3">
+                  Mutual funds may be classified by their principal investments, as described in the prospectus and investment objective.
+                </p>
+              </div>
+              <br>
+
+              <button id="btn2">Add Css</button>
+
+              <hr>
+
+              <div id="div4"> </div>
+
+              <br>
+              <button id="btn3">Display Dimensions of the divisions</button>
+              <hr>
 
           </div>
 
-            
-          <script src="Bootstrap/js/jquery-3.5.1.js"></script>
+          <div id="footer_div"> </div>
+
+          
           <script src="Bootstrap/js/bootstrap.min.js"></script>
       </body>
 
