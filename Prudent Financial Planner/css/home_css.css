@@ -62,3 +62,64 @@ span.prev:after {
   font-size: 55px;
   color: red;
 }
+
+
+#panel, #flip {
+  padding: 5px;
+  text-align: center;
+  background-color: #c4bd54;
+  border: solid 1px #c3c3c3;
+}
+#panel1, #flip1 {
+  padding: 5px;
+  text-align: center;
+  background-color: #c4bd54;
+  border: solid 1px #c3c3c3;
+}
+
+.jquery {
+  border: 1px solid chocolate;
+  height: auto;
+  text-align: center;
+  line-height: 25px;
+  background-color: #AEFFFB;
+}
+
+#div2 {
+  height:auto;
+  width:300px;
+  border:1px solid black;
+  background-color:yellow;
+  margin-left: 38em;
+}
+#div3 {
+  height:auto;
+  width:300px;
+  border:1px solid black;
+  background-color:yellow;
+  margin-left: 38em;
+}
+#div4 {
+  height:auto;
+  width:300px;
+  border:1px solid black;
+  background-color:yellow;
+  margin-left: 38em;
+}
+hr {
+  width: 100%;
+  color: chartreuse;
+}
+h3 {
+  color: #FF5733;
+}
+.important {
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+
+.colors {
+  color: blue;
+  background-color: azure;
+}
